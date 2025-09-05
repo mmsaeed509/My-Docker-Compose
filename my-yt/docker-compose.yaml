@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  my-yt:
+    image: christianfei/my-yt:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - "${HOME}/my-yt-data:/app/data"
+    restart: unless-stopped
+    container_name: my-yt
