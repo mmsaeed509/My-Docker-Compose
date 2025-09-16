@@ -6,7 +6,7 @@ services:
     container_name: macos
     environment:
       VERSION: "13"
-      RAM_SIZE: "8G"
+      RAM_SIZE: "6G"
       CPU_CORES: "6"
     devices:
       - /dev/kvm
