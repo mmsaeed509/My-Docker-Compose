@@ -12,7 +12,6 @@ services:
     container_name: jenkins
     restart: unless-stopped
     environment:
-      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
       - JENKINS_OPTS=--httpPort=8080
 
 volumes:
