@@ -2,11 +2,20 @@
 
 This setup provides a complete Jenkins installation with Docker support and webhook capabilities.
 
+## Custom Docker Image
+
+The setup uses a custom Jenkins image that includes:
+- **Docker CLI** installed inside the container
+- **Jenkins user added to docker group** for proper permissions
+- **Docker socket mounted** for container management from Jenkins
+
+This allows Jenkins to build, run, and manage Docker containers as part of your CI/CD pipelines.
+
 ## Quick Start
 
-1. **Start Jenkins**:
+1. **Build and start Jenkins**:
    ```bash
-   docker compose up -d
+   docker compose up -d --build
    ```
 
 2. **Get initial admin password**:
@@ -77,9 +86,11 @@ For custom webhook triggers:
    http://your-jenkins-url:8081/generic-webhook-trigger/invoke?token=YOUR_TOKEN
    ```
 
-## Sample Pipeline Script
+## Sample Pipeline Scripts
 
-Create a `Jenkinsfile` in your repository:
+### Basic Pipeline with Docker Support
+
+Create a `Jenkinsfile` in your repository (or use the provided `sample-pipeline.groovy`):
 
 ```groovy
 pipeline {
